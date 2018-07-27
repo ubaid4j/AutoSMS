@@ -15,7 +15,7 @@ var App = /** @class */ (function () {
         var db_url = process.env.DATABASEURL || "mongodb://localhost:27017/autoSMS_121";
         //setting
         app.set("view engine", "ejs");
-        mongoose.connect(db_url, { useNewUrlParser: true }, function (err) {
+        mongoose.connect("mongodb://ubaid:kaylin13@ds257241.mlab.com:57241/auto_sms", { useNewUrlParser: true }, function (err) {
             console.log(err);
         });
         //use
