@@ -1,6 +1,7 @@
 import * as mongoose from "mongoose"
 import * as passportLocalMongoose from "passport-local-mongoose"
 import * as passport from "passport"
+import { MongoError } from "../node_modules/@types/mongodb";
 
 export class UserModel
 {
@@ -8,8 +9,12 @@ export class UserModel
 
     public constructor()
     {
-        //connection
-        mongoose.connect("mongodb://localhost:27017/autoSMS_121", {useNewUrlParser: true});
+        // //connection
+        // mongoose.connect("mongodb://ubaid:kaylin13@ds257241.mlab.com:57241/auto_sms", {useNewUrlParser: true}, (err: MongoError) =>
+        // {
+        //     console.log(err);
+        // });
+        
         
         //creating a schema
         let user: mongoose.Schema = new mongoose.Schema(

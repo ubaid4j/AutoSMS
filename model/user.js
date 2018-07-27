@@ -4,9 +4,12 @@ var mongoose = require("mongoose");
 var passportLocalMongoose = require("passport-local-mongoose");
 var UserModel = /** @class */ (function () {
     function UserModel() {
+        // //connection
+        // mongoose.connect("mongodb://ubaid:kaylin13@ds257241.mlab.com:57241/auto_sms", {useNewUrlParser: true}, (err: MongoError) =>
+        // {
+        //     console.log(err);
+        // });
         this.user = null;
-        //connection
-        mongoose.connect("mongodb://localhost:27017/autoSMS_121", { useNewUrlParser: true });
         //creating a schema
         var user = new mongoose.Schema({
             username: String,

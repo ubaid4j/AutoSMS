@@ -11,9 +11,13 @@ var sendMessage_1 = require("./routers/sendMessageRoute/sendMessage");
 var App = /** @class */ (function () {
     function App() {
         var app = express();
+        //connection
+        var db_url = process.env.DATABASEURL || "mongodb://localhost:27017/autoSMS_121";
         //setting
         app.set("view engine", "ejs");
-        mongoose.connect("mongodb://localhost:27017/autoSMS_121", { useNewUrlParser: true });
+        mongoose.connect(db_url, { useNewUrlParser: true }, function (err) {
+            console.log(err);
+        });
         //use
         app.use(express.static("public"));
         app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,7 +45,8 @@ var App = /** @class */ (function () {
         app.use("/sendMessage", sender.getRouter());
     };
     App.prototype.listen = function (app) {
-        app.listen(3000, function () {
+        var port = process.env.PORT || 3000;
+        app.listen(port, function () {
             console.log("Server started");
         });
     };
