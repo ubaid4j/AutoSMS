@@ -1,5 +1,4 @@
 import * as express from "express";
-import * as Client from "hangupsjs";
 import * as Nexmo from "nexmo";
 
 export class SendMessage
