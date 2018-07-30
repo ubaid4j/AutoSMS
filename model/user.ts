@@ -60,7 +60,7 @@ export class UserModel
         );
 
 
-        User.findOne({"username" : "grandeur.exchange"}, (err: any, doc: mongoose.Document) => 
+        User.findOne({"username" : "username"}, (err: any, doc: mongoose.Document) => 
         {
             if(err)
             {
@@ -70,7 +70,7 @@ export class UserModel
             {
                 if(doc == null)
                 {
-                    let password : string = "kaylin13";
+                    let password : string = "password";
 
                     (this.getCollection() as mongoose.PassportLocalModel<mongoose.Document>).register(Username, password, (err:any, account:any) => 
                     {

@@ -4,11 +4,7 @@ var mongoose = require("mongoose");
 var passportLocalMongoose = require("passport-local-mongoose");
 var UserModel = /** @class */ (function () {
     function UserModel() {
-        // //connection
-        // mongoose.connect("mongodb://ubaid:kaylin13@ds257241.mlab.com:57241/auto_sms", {useNewUrlParser: true}, (err: MongoError) =>
-        // {
-        //     console.log(err);
-        // });
+
         this.user = null;
         //creating a schema
         var user = new mongoose.Schema({
@@ -35,13 +31,13 @@ var UserModel = /** @class */ (function () {
         var Username = new User({
             username: "grandeur.exchange"
         });
-        User.findOne({ "username": "grandeur.exchange" }, function (err, doc) {
+        User.findOne({ "username": "username" }, function (err, doc) {
             if (err) {
                 console.log(err);
             }
             else {
                 if (doc == null) {
-                    var password = "kaylin13";
+                    var password = "password";
                     _this.getCollection().register(Username, password, function (err, account) {
                         if (err) {
                             console.log(err);
