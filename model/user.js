@@ -4,7 +4,11 @@ var mongoose = require("mongoose");
 var passportLocalMongoose = require("passport-local-mongoose");
 var UserModel = /** @class */ (function () {
     function UserModel() {
-
+        // //connection
+        // mongoose.connect("mongodb://ubaid:kaylin13@ds257241.mlab.com:57241/auto_sms", {useNewUrlParser: true}, (err: MongoError) =>
+        // {
+        //     console.log(err);
+        // });
         this.user = null;
         //creating a schema
         var user = new mongoose.Schema({
@@ -19,6 +23,7 @@ var UserModel = /** @class */ (function () {
         //if there is user present in database, 
         //then it do nothing
     }
+    //if there is no user then add a user
     UserModel.prototype.checkUser = function () {
         //my wish is first find the data 
         //if data is present then do nothing
@@ -29,9 +34,9 @@ var UserModel = /** @class */ (function () {
         //2. then manully add the data
         var User = this.getCollection();
         var Username = new User({
-            username: "grandeur.exchange"
+            username: "test"
         });
-        User.findOne({ "username": "username" }, function (err, doc) {
+        User.findOne({ "username": "test" }, function (err, doc) {
             if (err) {
                 console.log(err);
             }
@@ -43,7 +48,7 @@ var UserModel = /** @class */ (function () {
                             console.log(err);
                         }
                         else {
-                            User.authenticate()("grandeur.exchange", "kaylin13", function (err, doc) {
+                            User.authenticate()("test", "password", function (err, doc) {
                                 if (err) {
                                     console.log(err);
                                 }

@@ -39,6 +39,7 @@ export class UserModel
 
 
 
+    //if there is no user then add a user
     public checkUser() : void
     {
         //my wish is first find the data 
@@ -55,12 +56,12 @@ export class UserModel
 
         let Username : mongoose.Document = new User(
             {
-                username: "grandeur.exchange"
+                username: "test"
             }
         );
 
 
-        User.findOne({"username" : "username"}, (err: any, doc: mongoose.Document) => 
+        User.findOne({"username" : "test"}, (err: any, doc: mongoose.Document) => 
         {
             if(err)
             {
@@ -80,7 +81,7 @@ export class UserModel
                         }
                         else
                         {
-                            (User as mongoose.PassportLocalModel<mongoose.Document>).authenticate()("grandeur.exchange", "kaylin13", (err:any, doc: mongoose.Document) =>
+                            (User as mongoose.PassportLocalModel<mongoose.Document>).authenticate()("test", "password", (err:any, doc: mongoose.Document) =>
                             {
                                 if(err)
                                 {
